@@ -13,12 +13,14 @@ app.use(express.json());
 app.use(cors({
   origin: [
     "http://localhost:8080",
-    "https://admin-rs1h.onrender.com"
+    "https://admin-rs1h.onrender.com",
+    "https://loan-inquiry-hub.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
 
 app.options("*", cors());
 
