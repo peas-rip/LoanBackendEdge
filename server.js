@@ -33,7 +33,7 @@ app.get("/test", (req, res) => {
 });
 
 // Routes
-app.use("/api/admin", require("./routes/Admin"));
-app.use("/api/applications", require("./routes/Application"));
+app.use("/admin", require("./routes/Admin"));
+app.use("/application", require("./routes/Application"));
 
 module.exports = app;
