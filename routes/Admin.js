@@ -4,7 +4,7 @@ const Admin = require("../models/Admin");
 const Application = require("../models/Application");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-
+const auth = require("../middleware/auth");
 // POST /api/admin/login
 router.post("/login", async (req, res) => {
   try {
