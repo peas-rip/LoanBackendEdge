@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 const Admin = require("../models/Admin");
 const Application = require("../models/Application");
 const auth = require("../middleware/auth");
-const { generatePDFBuffer } = require("../utils/pdf");
+const { streamApplicationPDF } = require("../utils/pdf");
 
 /* =========================
    PUBLIC ROUTES
@@ -104,7 +104,7 @@ router.get("/applications/:id/pdf", auth, async (req, res) => {
     const app = await Application.findById(req.params.id).lean();
     if (!app) return res.status(404).json({ message: "Not found" });
 
-    const buffer = await generatePDFBuffer(app);
+    const buffer = await streamApplicationPDF(app);
 
     res.setHeader("Content-Type", "application/pdf");
     res.setHeader(
