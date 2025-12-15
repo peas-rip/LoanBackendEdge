@@ -25,16 +25,7 @@ app.use(
   })
 );
 
-// Handle OPTIONS manually for Vercel
-app.options("*", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.status(200).end();
-});
+// Handle OPTIONS manually for Verce
 
 // Test route
 app.get("/test", (req, res) => {
